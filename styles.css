@@ -1,0 +1,1132 @@
+/* ============================================================================
+   SOFTCORE SYSTEMS — Landing page
+   ----------------------------------------------------------------------------
+   Organización de la hoja de estilos:
+
+   01. Variables (design tokens)
+   02. Reset y base
+   03. Layout: contenedor y secciones
+   04. Componentes reutilizables (etiquetas, títulos, botones, foco)
+   05. Header / Navbar
+   06. Hero
+   07. Introducción / propuesta de valor
+   08. Servicios
+   09. Metodología
+   10. Tecnologías
+   11. Enfoque
+   12. Equipo
+   13. CTA final
+   14. Footer
+   15. Animaciones de aparicion al hacer scroll
+   16. Responsive (tablet < 1200px, mobile < 768px)
+   17. Preferencias de movimiento reducido
+   ========================================================================== */
+
+
+/* ============================================================================
+   01. VARIABLES
+   ========================================================================== */
+
+:root {
+    /* Color */
+    --background:           #080808;
+    --surface:              #111111;
+    --surface-secondary:    #161616;
+    --surface-hover:        #1b1b1b;
+
+    --text-primary:         #F5F5F5;
+    --text-secondary:       #A6A6A6;
+    --text-muted:           #808080;
+
+    --accent:               #FF5A1F;
+    --accent-hover:         #FF7038;
+    --accent-soft:          rgba(255, 90, 31, 0.12);
+
+    --border:               #252525;
+    --border-soft:          #191919;
+
+    /* Tipografía */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* Escala tipográfica fluida */
+    --fs-hero:      clamp(2.25rem, 6.6vw, 6.75rem);
+    --fs-display:   clamp(2.1rem, 5.2vw, 4.5rem);
+    --fs-title:     clamp(1.75rem, 3.4vw, 3rem);
+    --fs-subtitle:  clamp(1.25rem, 2vw, 1.75rem);
+    --fs-lead:      clamp(1.05rem, 1.35vw, 1.375rem);
+    --fs-body:      1rem;
+    --fs-small:     0.875rem;
+    --fs-label:     0.75rem;
+
+    /* Layout */
+    --container:        1400px;
+    --gutter:           clamp(1.25rem, 4vw, 4rem);
+    --section-padding:  clamp(72px, 10vw, 140px);
+
+    /* Otros */
+    --radius:       2px;
+    --transition:   200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 380ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================================
+   02. RESET Y BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+p {
+    margin: 0;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: #0A0A0A;
+}
+
+
+/* ============================================================================
+   03. LAYOUT
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+}
+
+.section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    border-top: 1px solid var(--border);
+}
+
+/* Compensa la altura del navbar fijo al saltar con los anclajes */
+[id] {
+    scroll-margin-top: 90px;
+}
+
+
+/* ============================================================================
+   04. COMPONENTES REUTILIZABLES
+   ========================================================================== */
+
+/* --- Accesibilidad: enlace de salto ------------------------------------- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--gutter);
+    z-index: 200;
+    padding: 12px 20px;
+    background-color: var(--accent);
+    color: #0A0A0A;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    transition: top var(--transition);
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+/* --- Estados de foco visibles ------------------------------------------- */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* --- Etiqueta de sección: "01 / SERVICIOS" ------------------------------ */
+.label {
+    display: block;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.label__index {
+    color: var(--accent);
+}
+
+/* --- Títulos ------------------------------------------------------------ */
+.section__title {
+    font-size: var(--fs-display);
+    font-weight: 700;
+    max-width: 20ch;
+    text-wrap: balance;
+}
+
+.section__title--split {
+    max-width: none;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.lead {
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+/* --- Botones ------------------------------------------------------------ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 1.125rem 1.75rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color var(--transition), color var(--transition),
+                border-color var(--transition), transform var(--transition);
+}
+
+.btn--primary {
+    background-color: var(--accent);
+    color: #0A0A0A;
+}
+
+.btn--primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn--lg {
+    padding: 1.375rem 2.25rem;
+    font-size: var(--fs-body);
+}
+
+.btn__arrow {
+    display: inline-block;
+    transition: transform var(--transition);
+}
+
+.btn:hover .btn__arrow {
+    transform: translateX(5px);
+}
+
+
+/* ============================================================================
+   05. HEADER / NAVBAR
+   ========================================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(8, 8, 8, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 74px;
+}
+
+/* --- Logo --------------------------------------------------------------- */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: var(--fs-body);
+    letter-spacing: -0.01em;
+}
+
+.logo__mark {
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    transition: transform var(--transition-slow);
+}
+
+.logo:hover .logo__mark {
+    transform: rotate(45deg);
+}
+
+.logo__text {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.logo__text strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* --- Navegación --------------------------------------------------------- */
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.nav__link {
+    position: relative;
+    display: inline-block;
+    padding: 4px 0;
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+}
+
+/* Subrayado animado */
+.nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.nav__link:hover {
+    color: var(--text-primary);
+}
+
+.nav__link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav__link--cta {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+
+/* ============================================================================
+   06. HERO
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 74px);
+    padding-top: clamp(64px, 10vh, 120px);
+    padding-bottom: clamp(48px, 8vh, 90px);
+    overflow: hidden;
+}
+
+/* Retícula vertical de fondo, muy sutil */
+.hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        to right,
+        var(--border-soft) 0 1px,
+        transparent 1px 20%
+    );
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero__label {
+    margin-bottom: clamp(1.75rem, 4vw, 3rem);
+}
+
+.hero__title {
+    font-size: var(--fs-hero);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    max-width: 18ch;
+    overflow-wrap: break-word;
+}
+
+.hero__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: clamp(2rem, 5vw, 4rem);
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--border);
+}
+
+.hero__lead {
+    max-width: 46ch;
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* --- Figura geométrica abstracta ---------------------------------------- */
+.hero__figure {
+    position: absolute;
+    top: 8%;
+    right: calc(var(--gutter) * -0.25);
+    width: clamp(200px, 26vw, 380px);
+    height: clamp(200px, 26vw, 380px);
+    pointer-events: none;
+}
+
+.hero__figure-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+.hero__figure-ring::before {
+    content: "";
+    position: absolute;
+    inset: 18%;
+    border: 1px solid var(--border-soft);
+    border-radius: 50%;
+}
+
+.hero__figure-square {
+    position: absolute;
+    top: 12%;
+    right: 8%;
+    width: 14px;
+    height: 14px;
+    background-color: var(--accent);
+}
+
+.hero__figure-line {
+    position: absolute;
+    top: 50%;
+    left: -40%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border));
+}
+
+/* --- Indicador de scroll ------------------------------------------------- */
+.hero__scroll {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.hero__scroll::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 34px;
+    margin: 10px auto 0;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+
+/* ============================================================================
+   07. INTRODUCCIÓN / PROPUESTA DE VALOR
+   ========================================================================== */
+
+.intro {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+}
+
+.intro__body {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+    color: var(--text-secondary);
+    max-width: 52ch;
+}
+
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: clamp(4rem, 8vw, 7rem);
+    background-color: var(--border);
+    border: 1px solid var(--border);
+}
+
+.pillar {
+    padding: clamp(1.75rem, 3vw, 2.75rem);
+    background-color: var(--background);
+    transition: background-color var(--transition);
+}
+
+.pillar:hover {
+    background-color: var(--surface);
+}
+
+.pillar__title {
+    margin-bottom: 1rem;
+    font-size: var(--fs-subtitle);
+    font-weight: 600;
+}
+
+.pillar p {
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    line-height: 1.7;
+}
+
+
+/* ============================================================================
+   08. SERVICIOS
+   ========================================================================== */
+
+.services {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid var(--border);
+}
+
+.service {
+    border-bottom: 1px solid var(--border);
+    /* El box-shadow extiende el fondo del hover más allá del contenedor,
+       generando una franja a sangre sin recurrir a posicionamiento. */
+    transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.service:hover,
+.service:focus-within {
+    background-color: var(--surface);
+    box-shadow: -24px 0 0 var(--surface), 24px 0 0 var(--surface);
+}
+
+.service__link {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) minmax(0, 1fr) 60px;
+    align-items: center;
+    gap: 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+    transition: padding var(--transition);
+}
+
+.service__link:hover,
+.service__link:focus-visible {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.service__num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    transition: color var(--transition);
+}
+
+.service__link:hover .service__num,
+.service__link:focus-visible .service__num {
+    color: var(--accent);
+}
+
+.service__name {
+    font-size: var(--fs-title);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.service__desc {
+    max-width: 44ch;
+    font-size: var(--fs-small);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.service__arrow {
+    justify-self: end;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: transform var(--transition), color var(--transition);
+}
+
+.service__link:hover .service__arrow,
+.service__link:focus-visible .service__arrow {
+    transform: translateX(8px);
+    color: var(--accent);
+}
+
+
+/* ============================================================================
+   09. METODOLOGÍA
+   ========================================================================== */
+
+.method__head {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: end;
+}
+
+.method__intro {
+    max-width: 46ch;
+    color: var(--text-secondary);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+
+.step {
+    position: relative;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    transition: border-color var(--transition);
+}
+
+/* Marca naranja que crece sobre la línea superior */
+.step::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 32px;
+    height: 1px;
+    background-color: var(--accent);
+    transition: width var(--transition-slow);
+}
+
+.step:hover::before {
+    width: 100%;
+}
+
+.step__num {
+    display: block;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    color: var(--accent);
+}
+
+.step__title {
+    margin-bottom: 0.75rem;
+    font-size: var(--fs-subtitle);
+    font-weight: 600;
+}
+
+.step__desc {
+    font-size: var(--fs-small);
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================================
+   10. TECNOLOGÍAS
+   ========================================================================== */
+
+.tech {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin-top: clamp(3rem, 6vw, 5rem);
+    background-color: var(--border);
+    border: 1px solid var(--border);
+}
+
+.tech__group {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    background-color: var(--background);
+    transition: background-color var(--transition);
+}
+
+.tech__group:hover {
+    background-color: var(--surface);
+}
+
+.tech__label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.tech__items {
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.tech__note {
+    max-width: 60ch;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================================
+   11. ENFOQUE
+   ========================================================================== */
+
+.approach {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem) clamp(3rem, 8vw, 8rem);
+    margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.approach__item {
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.approach__title {
+    margin-bottom: 1rem;
+    font-size: var(--fs-title);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.approach__item p {
+    max-width: 44ch;
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================================
+   12. EQUIPO
+   ========================================================================== */
+
+.team__head {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: end;
+}
+
+.team__intro {
+    max-width: 50ch;
+    color: var(--text-secondary);
+}
+
+.team__intro strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: clamp(3.5rem, 7vw, 5.5rem);
+    background-color: var(--border);
+    border: 1px solid var(--border);
+}
+
+.team__member {
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    background-color: var(--background);
+    transition: background-color var(--transition);
+}
+
+.team__member:hover {
+    background-color: var(--surface);
+}
+
+.team__initials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    height: 46px;
+    margin-bottom: 1.5rem;
+    padding: 0 0.6rem;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    color: var(--accent);
+    transition: border-color var(--transition);
+}
+
+.team__member:hover .team__initials {
+    border-color: var(--accent);
+}
+
+.team__name {
+    font-size: var(--fs-subtitle);
+    font-weight: 600;
+}
+
+.team__meta {
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.team__note {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+
+/* ============================================================================
+   13. CTA FINAL
+   ========================================================================== */
+
+.cta {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--surface-secondary);
+    border-top: 1px solid var(--border);
+}
+
+.cta__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: end;
+}
+
+.cta__title {
+    font-size: var(--fs-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.cta__aside {
+    display: grid;
+    justify-items: start;
+    gap: 2rem;
+}
+
+.cta__text {
+    max-width: 40ch;
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================================
+   14. FOOTER
+   ========================================================================== */
+
+.footer {
+    padding-top: clamp(3rem, 6vw, 4.5rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--border);
+}
+
+.footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+.footer__name {
+    font-size: var(--fs-subtitle);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.footer__tagline {
+    margin-top: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.footer__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+}
+
+.footer__link {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+}
+
+.footer__link:hover {
+    color: var(--accent);
+}
+
+.footer__legal {
+    width: 100%;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-soft);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+
+/* ============================================================================
+   15. ANIMACIONES DE APARICIÓN AL HACER SCROLL
+   ----------------------------------------------------------------------------
+   El estado oculto solo se aplica cuando script.js agrega la clase .js-reveal
+   al <html>. Sin JavaScript la página se ve completa, sin elementos invisibles.
+   ========================================================================== */
+
+.js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.js-reveal [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+}
+
+
+/* ============================================================================
+   16. RESPONSIVE
+   ========================================================================== */
+
+/* --- Tablet: 768px – 1199px --------------------------------------------- */
+@media (max-width: 1199px) {
+
+    .intro,
+    .method__head,
+    .team__head,
+    .cta__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .team {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .tech {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1.5rem;
+    }
+
+    /* Los servicios pasan a dos filas: título arriba, descripción debajo */
+    .service__link {
+        grid-template-columns: 70px minmax(0, 1fr) 40px;
+        align-items: start;
+    }
+
+    .service__num {
+        padding-top: 0.4rem;
+    }
+
+    .service__desc {
+        grid-column: 2 / 3;
+        margin-top: 0.75rem;
+    }
+
+    .service__arrow {
+        grid-row: 1 / 2;
+        grid-column: 3 / 4;
+    }
+
+    .hero__figure {
+        top: auto;
+        bottom: 12%;
+        opacity: 0.6;
+    }
+}
+
+/* --- Mobile: < 768px ----------------------------------------------------- */
+@media (max-width: 767px) {
+
+    .site-header__inner {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .nav__list {
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero__title {
+        max-width: none;
+    }
+
+    /* En pantallas chicas los títulos se cortan solos, sin saltos forzados */
+    .hero__title br,
+    .section__title br,
+    .cta__title br {
+        display: none;
+    }
+
+    .hero__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero__figure {
+        display: none;
+    }
+
+    .hero__scroll {
+        display: none;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .approach,
+    .team {
+        grid-template-columns: 1fr;
+    }
+
+    .tech__group {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .service__link {
+        grid-template-columns: 48px minmax(0, 1fr) 32px;
+        gap: 1rem;
+    }
+
+    /* En móvil se desactiva el desplazamiento lateral del hover */
+    .service__link:hover,
+    .service__link:focus-visible {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+
+/* ============================================================================
+   17. MOVIMIENTO REDUCIDO
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    /* Nada queda oculto si el usuario pidió menos movimiento */
+    .js-reveal [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

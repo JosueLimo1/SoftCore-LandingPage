@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftCore Systems — Desarrollo de software a medida</title>
+    <meta name="description" content="SoftCore Systems desarrolla software a medida para pymes: aplicaciones web, sistemas de gestión, automatización de procesos e integración de APIs.">
+
+    <!-- Tipografías: Inter (títulos y textos) + JetBrains Mono (etiquetas y numeración) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Enlace de salto para navegación por teclado / lectores de pantalla -->
+    <a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+    <!-- ============================================================
+         1 — NAVBAR
+         ============================================================ -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+
+            <a class="logo" href="#inicio" aria-label="SoftCore Systems — inicio">
+                <span class="logo__mark" aria-hidden="true"></span>
+                <span class="logo__text"><strong>SoftCore</strong> Systems</span>
+            </a>
+
+            <nav class="nav" aria-label="Navegación principal">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="#servicios">Servicios</a></li>
+                    <li><a class="nav__link" href="#nosotros">Nosotros</a></li>
+                    <li><a class="nav__link" href="#tecnologias">Tecnologías</a></li>
+                    <li><a class="nav__link" href="#equipo">Equipo</a></li>
+                    <li><a class="nav__link nav__link--cta" href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="inicio">
+
+        <!-- ============================================================
+             2 — HERO
+             ============================================================ -->
+        <section class="hero" aria-labelledby="hero-title">
+            <!-- Retícula decorativa de fondo (solo CSS, sin imágenes) -->
+            <div class="hero__grid" aria-hidden="true"></div>
+
+            <div class="container hero__inner">
+
+                <p class="label hero__label" data-reveal>
+                    <span class="label__index">00</span> / Desarrollo de software a medida
+                </p>
+
+                <h1 class="hero__title" id="hero-title" data-reveal>
+                    Software<br>
+                    a medida para<br>
+                    tu negocio<span class="accent">.</span>
+                </h1>
+
+                <div class="hero__bottom" data-reveal>
+                    <p class="hero__lead">
+                        Diseñamos y desarrollamos soluciones digitales a medida que optimizan
+                        procesos y acompañan el crecimiento de las empresas.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#contacto">
+                            Contanos tu proyecto
+                            <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Elemento visual abstracto: composición geométrica mínima -->
+                <div class="hero__figure" aria-hidden="true">
+                    <span class="hero__figure-ring"></span>
+                    <span class="hero__figure-square"></span>
+                    <span class="hero__figure-line"></span>
+                </div>
+
+                <p class="hero__scroll" aria-hidden="true">Scroll</p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             3 — INTRODUCCIÓN / PROPUESTA DE VALOR
+             ============================================================ -->
+        <section class="section section--intro" id="nosotros" aria-labelledby="intro-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">01</span> / Sobre SoftCore</p>
+
+                <div class="intro">
+                    <h2 class="section__title" data-reveal id="intro-title">
+                        Software construido alrededor de tu empresa<span class="accent">.</span>
+                    </h2>
+
+                    <div class="intro__body" data-reveal>
+                        <p class="lead">
+                            No obligamos a una empresa a adaptarse al software.
+                            Construimos el software que se adapta a la empresa.
+                        </p>
+                        <p>
+                            SoftCore Systems desarrolla soluciones de software a medida para pequeñas
+                            y medianas empresas, ayudándolas a digitalizar procesos, organizar su
+                            información y mejorar su operación diaria.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pillars">
+                    <article class="pillar" data-reveal>
+                        <h3 class="pillar__title">Misión</h3>
+                        <p>
+                            Desarrollar soluciones eficientes y adaptadas a las necesidades reales de
+                            cada cliente, para resolver problemas de gestión, organización y
+                            digitalización dentro de las empresas.
+                        </p>
+                    </article>
+                    <article class="pillar" data-reveal>
+                        <h3 class="pillar__title">Visión</h3>
+                        <p>
+                            Ser una empresa referente en desarrollo de software a nivel regional,
+                            destacándonos por la calidad de nuestras soluciones y la capacidad de
+                            adaptarnos a un entorno tecnológico en cambio permanente.
+                        </p>
+                    </article>
+                    <article class="pillar" data-reveal>
+                        <h3 class="pillar__title">Enfoque</h3>
+                        <p>
+                            Mejorar la productividad, reducir errores operativos y acompañar a las
+                            organizaciones en su transformación digital con tecnología confiable
+                            y accesible.
+                        </p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             4 — SERVICIOS
+             ============================================================ -->
+        <section class="section section--services" id="servicios" aria-labelledby="services-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">02</span> / Qué hacemos</p>
+
+                <h2 class="section__title section__title--split" data-reveal id="services-title">
+                    Soluciones pensadas para<br>problemas reales<span class="accent">.</span>
+                </h2>
+
+                <ul class="services">
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">01</span>
+                            <span class="service__name">Software a medida</span>
+                            <span class="service__desc">
+                                Soluciones específicas construidas sobre los procesos, necesidades
+                                y objetivos concretos de cada empresa.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">02</span>
+                            <span class="service__name">Aplicaciones web</span>
+                            <span class="service__desc">
+                                Aplicaciones modernas, rápidas y responsivas, que funcionan igual
+                                de bien en computadoras, tablets y celulares.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">03</span>
+                            <span class="service__name">Sistemas de gestión</span>
+                            <span class="service__desc">
+                                Clientes, productos, ventas, stock, operaciones y administración
+                                centralizados en un solo sistema.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">04</span>
+                            <span class="service__name">Automatización de procesos</span>
+                            <span class="service__desc">
+                                Digitalizamos tareas manuales y repetitivas para reducir errores
+                                operativos y ganar tiempo productivo.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">05</span>
+                            <span class="service__name">Integración de APIs</span>
+                            <span class="service__desc">
+                                Conectamos tus sistemas con plataformas y servicios externos para
+                                que la información fluya sin cargas dobles.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                    <li class="service" data-reveal>
+                        <a class="service__link" href="#contacto">
+                            <span class="service__num">06</span>
+                            <span class="service__name">Diseño UI/UX</span>
+                            <span class="service__desc">
+                                Interfaces intuitivas, validadas antes de programar, para que el
+                                equipo del cliente las use sin fricción.
+                            </span>
+                            <span class="service__arrow" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             5 — METODOLOGÍA
+             ============================================================ -->
+        <section class="section section--method" aria-labelledby="method-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">03</span> / Cómo trabajamos</p>
+
+                <div class="method__head">
+                    <h2 class="section__title" data-reveal id="method-title">
+                        De un problema a una solución<span class="accent">.</span>
+                    </h2>
+                    <p class="method__intro" data-reveal>
+                        Trabajamos con metodologías ágiles y ciclos de desarrollo cortos, lo que nos
+                        permite mostrar avances seguido y adaptarnos a los cambios del proyecto.
+                    </p>
+                </div>
+
+                <ol class="steps">
+                    <li class="step" data-reveal>
+                        <span class="step__num">01</span>
+                        <h3 class="step__title">Entendemos</h3>
+                        <p class="step__desc">Analizamos el problema, los procesos y las necesidades reales de la empresa.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__num">02</span>
+                        <h3 class="step__title">Diseñamos</h3>
+                        <p class="step__desc">Definimos la solución, la experiencia de usuario y las interfaces.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__num">03</span>
+                        <h3 class="step__title">Desarrollamos</h3>
+                        <p class="step__desc">Construimos frontend, backend, APIs y base de datos.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__num">04</span>
+                        <h3 class="step__title">Probamos</h3>
+                        <p class="step__desc">Ejecutamos pruebas funcionales y de regresión antes de cada entrega.</p>
+                    </li>
+                    <li class="step" data-reveal>
+                        <span class="step__num">05</span>
+                        <h3 class="step__title">Implementamos</h3>
+                        <p class="step__desc">Preparamos la solución para su puesta en uso y acompañamos el arranque.</p>
+                    </li>
+                </ol>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             6 — TECNOLOGÍAS
+             ============================================================ -->
+        <section class="section section--tech" id="tecnologias" aria-labelledby="tech-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">04</span> / Tecnología</p>
+
+                <h2 class="section__title section__title--split" data-reveal id="tech-title">
+                    Herramientas modernas para<br>construir soluciones sólidas<span class="accent">.</span>
+                </h2>
+
+                <div class="tech">
+                    <div class="tech__group" data-reveal>
+                        <h3 class="tech__label">Backend</h3>
+                        <p class="tech__items">C# / .NET / ASP.NET Core</p>
+                    </div>
+                    <div class="tech__group" data-reveal>
+                        <h3 class="tech__label">Frontend</h3>
+                        <p class="tech__items">React / TypeScript / JavaScript / HTML / CSS / Tailwind CSS</p>
+                    </div>
+                    <div class="tech__group" data-reveal>
+                        <h3 class="tech__label">Datos</h3>
+                        <p class="tech__items">MySQL / Entity Framework Core</p>
+                    </div>
+                    <div class="tech__group" data-reveal>
+                        <h3 class="tech__label">Herramientas</h3>
+                        <p class="tech__items">Git / GitHub / Docker / Postman / Figma</p>
+                    </div>
+                </div>
+
+                <p class="tech__note" data-reveal>
+                    Elegimos tecnologías con documentación sólida, comunidad activa y mantenimiento
+                    frecuente. La decisión técnica siempre viene después del problema de negocio.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             7 — POR QUÉ SOFTCORE
+             ============================================================ -->
+        <section class="section section--approach" aria-labelledby="approach-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">05</span> / Nuestro enfoque</p>
+
+                <h2 class="section__title" data-reveal id="approach-title">
+                    Por qué SoftCore<span class="accent">.</span>
+                </h2>
+
+                <div class="approach">
+                    <article class="approach__item" data-reveal>
+                        <h3 class="approach__title">Personalización</h3>
+                        <p>Cada solución parte de las necesidades reales del cliente, no de una plantilla.</p>
+                    </article>
+                    <article class="approach__item" data-reveal>
+                        <h3 class="approach__title">Calidad</h3>
+                        <p>El desarrollo incluye diseño, implementación y aseguramiento de calidad antes de entregar.</p>
+                    </article>
+                    <article class="approach__item" data-reveal>
+                        <h3 class="approach__title">Agilidad</h3>
+                        <p>Trabajamos con metodologías ágiles para adaptarnos a los cambios durante el proyecto.</p>
+                    </article>
+                    <article class="approach__item" data-reveal>
+                        <h3 class="approach__title">Escalabilidad</h3>
+                        <p>Diseñamos soluciones preparadas para acompañar el crecimiento del negocio.</p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             8 — EQUIPO
+             ============================================================ -->
+        <section class="section section--team" id="equipo" aria-labelledby="team-title">
+            <div class="container">
+
+                <p class="label" data-reveal><span class="label__index">06</span> / Equipo</p>
+
+                <div class="team__head">
+                    <h2 class="section__title" data-reveal id="team-title">
+                        Las personas detrás del proyecto<span class="accent">.</span>
+                    </h2>
+                    <p class="team__intro" data-reveal>
+                        SoftCore Systems es un proyecto desarrollado por estudiantes de
+                        Ingeniería en Sistemas de Información de la
+                        <strong>Universidad Tecnológica Nacional, Facultad Regional Tucumán</strong>,
+                        en el marco de la cátedra Administración de Sistemas de Información
+                        (comisión 4K1).
+                    </p>
+                </div>
+
+                <ul class="team">
+                    <li class="team__member" data-reveal>
+                        <span class="team__initials" aria-hidden="true">JL</span>
+                        <h3 class="team__name">Josué Limo</h3>
+                        <p class="team__meta">Legajo 58000</p>
+                    </li>
+                    <li class="team__member" data-reveal>
+                        <span class="team__initials" aria-hidden="true">IH</span>
+                        <h3 class="team__name">Iván Herrera</h3>
+                        <p class="team__meta">Legajo 58369</p>
+                    </li>
+                    <li class="team__member" data-reveal>
+                        <span class="team__initials" aria-hidden="true">VL</span>
+                        <h3 class="team__name">Víctor Librán</h3>
+                        <p class="team__meta">Legajo 57810</p>
+                    </li>
+                    <li class="team__member" data-reveal>
+                        <span class="team__initials" aria-hidden="true">CLK</span>
+                        <h3 class="team__name">Carlos Lix Klett</h3>
+                        <p class="team__meta">Legajo 57809</p>
+                    </li>
+                </ul>
+
+                <!-- TODO EQUIPO:
+                     Si más adelante se define el rol de cada integrante (Scrum Master,
+                     Backend, Frontend, UI/UX, QA), agregarlo dentro de .team__meta.
+                     No se asignan roles acá porque no están definidos en el TP. -->
+
+                <p class="team__note" data-reveal>
+                    Universidad Tecnológica Nacional &mdash; Facultad Regional Tucumán &middot;
+                    Administración de Sistemas de Información &middot; Comisión 4K1
+                </p>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             PORTFOLIO / CASOS
+             Sección omitida intencionalmente: todavía no hay proyectos ni
+             casos reales para mostrar. Se incorporará más adelante.
+             ============================================================ -->
+
+        <!-- ============================================================
+             9 — CTA FINAL
+             ============================================================ -->
+        <section class="cta" id="contacto" aria-labelledby="cta-title">
+            <div class="container cta__inner">
+
+                <h2 class="cta__title" data-reveal id="cta-title">
+                    ¿Tenés un proceso<br>
+                    que podría funcionar<br>
+                    mejor<span class="accent">?</span>
+                </h2>
+
+                <div class="cta__aside" data-reveal>
+                    <p class="cta__text">
+                        Contanos qué necesita resolver tu empresa y analizamos juntos si tiene
+                        sentido resolverlo con software.
+                    </p>
+
+                    <a class="btn btn--primary btn--lg" href="#contacto">
+                        Contanos tu proyecto
+                        <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+
+                    <!-- TODO CONTACTO:
+                         Reemplazar el enlace anterior por el canal de contacto real cuando esté
+                         definido. Opciones:
+                           - mailto:   <a href="mailto:CORREO@DOMINIO">...</a>
+                           - WhatsApp: <a href="https://wa.me/NUMERO">...</a>
+                           - Formulario propio (requiere backend o servicio externo). -->
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         10 — FOOTER
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+
+            <div class="footer__brand">
+                <p class="footer__name">SoftCore Systems</p>
+                <p class="footer__tagline">Software Development</p>
+            </div>
+
+            <nav class="footer__nav" aria-label="Navegación del pie de página">
+                <ul>
+                    <li><a class="footer__link" href="#servicios">Servicios</a></li>
+                    <li><a class="footer__link" href="#nosotros">Nosotros</a></li>
+                    <li><a class="footer__link" href="#tecnologias">Tecnologías</a></li>
+                    <li><a class="footer__link" href="#equipo">Equipo</a></li>
+                    <li><a class="footer__link" href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- TODO DATOS DE CONTACTO:
+                 Agregar acá los datos reales cuando estén definidos, por ejemplo:
+                 <div class="footer__contact">
+                     <p>Dirección: ...</p>
+                     <p>Teléfono: ...</p>
+                     <p>Email: ...</p>
+                     <p>Redes: LinkedIn / Instagram / GitHub</p>
+                 </div>
+                 No se cargan datos ficticios. -->
+
+            <p class="footer__legal">&copy; SoftCore Systems</p>
+
+        </div>
+    </footer>
+
+    <!-- Animaciones de aparición al hacer scroll (mejora progresiva: sin JS la
+         página se ve completa igual). -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>
